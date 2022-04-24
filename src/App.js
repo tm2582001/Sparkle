@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import Sparkles from './components/sparkles.component';
+import generateSparkle from "../src/components/generate-sparkle.component";
+import { useState } from 'react';
 import './App.css';
 
+
 function App() {
+  const [sparkle, setSparkle] = useState(generateSparkle());
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Sparkles sparkle={sparkle}>
+        <button onClick={()=>{setSparkle(generateSparkle())}}>
+          Click Me
+        </button>
+      </Sparkles>      
     </div>
   );
 }
